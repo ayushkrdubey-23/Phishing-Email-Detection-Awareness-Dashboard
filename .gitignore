@@ -1,0 +1,76 @@
+# Python cache
+
+**pycache**/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+
+venv/
+.venv/
+env/
+
+# Environment variables and secrets
+
+.env
+.env.*
+!.env.example
+
+# Machine learning generated files
+
+*.pkl
+*.joblib
+*.h5
+*.model
+
+# Database files
+
+*.db
+*.sqlite
+*.sqlite3
+
+# Frontend dependencies
+
+node_modules/
+frontend/node_modules/
+
+# Build files
+
+dist/
+build/
+frontend/dist/
+
+# IDE and editor files
+
+.vscode/
+.idea/
+
+# Operating system files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+
+*.log
+logs/
+
+# Testing and coverage
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Temporary files
+
+*.tmp
+*.bak
+
+# Keep empty project directories
+
+!.gitkeep
