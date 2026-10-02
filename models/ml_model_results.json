@@ -1,0 +1,146 @@
+{
+    "project": "Phishing Email Detection & Awareness Dashboard",
+    "generated_at_utc": "2026-10-02T19:18:09.888571+00:00",
+    "dataset": {
+        "path": "C:\\Users\\kumar\\OneDrive\\Desktop\\Ayush_Kumar_Dubey\\Cyber Security\\Project_ (1)\\Phishing-Email-Detection-Awareness-Dashboard\\data\\feature_engineered_dataset.csv",
+        "total_records": 600,
+        "label_distribution": {
+            "PHISHING": 300,
+            "LEGITIMATE": 300
+        }
+    },
+    "split": {
+        "training": {
+            "records": 420,
+            "label_distribution": {
+                "PHISHING": 210,
+                "LEGITIMATE": 210
+            }
+        },
+        "validation": {
+            "records": 90,
+            "label_distribution": {
+                "LEGITIMATE": 45,
+                "PHISHING": 45
+            }
+        },
+        "test": {
+            "records": 90,
+            "label_distribution": {
+                "LEGITIMATE": 45,
+                "PHISHING": 45
+            }
+        }
+    },
+    "split_ratios": {
+        "training": 0.7,
+        "validation": 0.15,
+        "test": 0.15
+    },
+    "tfidf": {
+        "ngram_range": [
+            1,
+            2
+        ],
+        "max_features": 5000,
+        "fit_on_training_data_only": true
+    },
+    "models_compared": [
+        "Logistic Regression",
+        "Naive Bayes",
+        "Random Forest"
+    ],
+    "validation_results": {
+        "Logistic Regression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": [
+                [
+                    45,
+                    0
+                ],
+                [
+                    0,
+                    45
+                ]
+            ],
+            "confusion_matrix_labels": [
+                "LEGITIMATE",
+                "PHISHING"
+            ]
+        },
+        "Naive Bayes": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": [
+                [
+                    45,
+                    0
+                ],
+                [
+                    0,
+                    45
+                ]
+            ],
+            "confusion_matrix_labels": [
+                "LEGITIMATE",
+                "PHISHING"
+            ]
+        },
+        "Random Forest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": [
+                [
+                    45,
+                    0
+                ],
+                [
+                    0,
+                    45
+                ]
+            ],
+            "confusion_matrix_labels": [
+                "LEGITIMATE",
+                "PHISHING"
+            ]
+        }
+    },
+    "selection_criterion": "Highest validation F1 score; ties are resolved using recall, precision, then model name.",
+    "selected_model": "Random Forest",
+    "final_training_data": "Training + Validation",
+    "final_training_records": 510,
+    "final_test_records": 90,
+    "final_test_results": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "confusion_matrix": [
+            [
+                45,
+                0
+            ],
+            [
+                0,
+                45
+            ]
+        ],
+        "confusion_matrix_labels": [
+            "LEGITIMATE",
+            "PHISHING"
+        ]
+    },
+    "final_model_path": "C:\\Users\\kumar\\OneDrive\\Desktop\\Ayush_Kumar_Dubey\\Cyber Security\\Project_ (1)\\Phishing-Email-Detection-Awareness-Dashboard\\models\\tfidf_random_forest.joblib",
+    "positive_class": "PHISHING",
+    "negative_class": "LEGITIMATE",
+    "results_are_actual_run_output": true,
+    "accuracy_warning": "Accuracy alone is not sufficient for phishing detection. Precision, recall, and F1 must also be considered.",
+    "data_source_note": "Results are based only on the project's synthetic dataset and should not be treated as production performance."
+}
