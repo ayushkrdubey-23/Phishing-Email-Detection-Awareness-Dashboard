@@ -1,0 +1,7 @@
+From: training@example.org
+Subject: Cybersecurity Workshop Reminder
+
+This is a reminder that the cybersecurity workshop will take place tomorrow.
+Please review the workshop schedule before attending.
+
+https://example.org/workshop
