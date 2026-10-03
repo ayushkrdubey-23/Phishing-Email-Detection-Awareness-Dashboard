@@ -61,7 +61,10 @@ class TestAPI(unittest.TestCase):
     def test_root_endpoint(self) -> None:
         response = self.client.get("/")
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
 
         body = response.json()
 
@@ -111,6 +114,41 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(
             response.status_code,
             422,
+        )
+
+    def test_valid_url_analysis_endpoint(self) -> None:
+        response = self.client.post(
+            "/api/analyze/url",
+            json={
+                "url": "http://198.51.100.10/verify-account",
+            },
+        )
+
+        self.assertEqual(
+            response.status_code,
+            200,
+        )
+
+        body = response.json()
+
+        self.assertEqual(
+            body["static_analysis_only"],
+            True,
+        )
+
+        self.assertEqual(
+            body["privacy"]["url_visited"],
+            False,
+        )
+
+        self.assertEqual(
+            body["privacy"]["network_request_made"],
+            False,
+        )
+
+        self.assertIn(
+            "result",
+            body,
         )
 
     def test_history_endpoint_is_available(self) -> None:

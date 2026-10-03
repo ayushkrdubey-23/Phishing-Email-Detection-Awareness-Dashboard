@@ -12,9 +12,7 @@ from backend.schemas import (
     AnalyzeEmailRequest,
     AnalyzeURLRequest,
 )
-from backend.services.analysis_service import (
-    analyze_email,
-)
+from backend.services.analysis_service import analyze_email
 from backend.services.history_service import (
     delete_analysis,
     get_analysis,
@@ -23,6 +21,7 @@ from backend.services.history_service import (
     list_analyses,
     save_analysis,
 )
+from backend.services.url_analyzer import analyze_url
 
 
 router = APIRouter(
@@ -53,7 +52,9 @@ def analyze_email_endpoint(
             explicit_urls=request.urls,
         )
 
-        analysis_id = save_analysis(result)
+        analysis_id = save_analysis(
+            result
+        )
 
         result["analysis_id"] = analysis_id
 
@@ -91,15 +92,12 @@ def analyze_url_endpoint(
     """
     Perform static URL analysis.
 
-    The supplied URL is never opened or requested.
+    The supplied URL is analyzed as a string only.
+    The application never opens or requests the URL.
     """
     try:
-        from backend.services.analysis_service import (
-            run_url_analysis,
-        )
-
-        result = run_url_analysis(
-            request.url
+        result = analyze_url(
+            url=request.url
         )
 
         return {
@@ -139,7 +137,9 @@ def get_analyses_endpoint(
     search: str | None = Query(
         default=None,
         max_length=120,
-        description="Search subject, sender domain, or classification.",
+        description=(
+            "Search subject, sender domain, or classification."
+        ),
     ),
     sort_by: str = Query(
         default="created_at",
